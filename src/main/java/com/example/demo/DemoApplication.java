@@ -14,6 +14,11 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 	
+	@GetMapping("/fuck")
+	public String fuck(@RequestParam(value = "name", defaultValue = "World") String name) {
+		return String.format("Fuck You %s!", name);
+	}
+	
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return String.format("Hello %s!", name);
