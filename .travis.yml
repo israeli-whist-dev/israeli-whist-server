@@ -16,16 +16,9 @@ jobs:
 
 script: "echo 'Building Docker image with tags'"
 
-after_success:
-  - export DEPLOY_TIMESTAMP=`date +'%Y%m%d-%H%M%S'`
-  - docker build -t demo:$DEPLOY_TIMESTAMP-$TRAVIS_BUILD_NUMBER-$TRAVIS_BRANCH -t demo:latest .
 
-deploy:
-  provider: gcs
-  access_key_id: "GCS Interoperable Access Key ID"
-  secret_access_key: "GCS Interoperable Access Secret"
-  bucket: "GCS Bucket"
-  skip_cleanup: true
-  on:
-    branch: master
+deploy: 
+  provider: script
+  script:
+    args: ["-c", "docker login --username=[$DOCKERHUB_USER] --password=$DOCKERHUB_PASSWORD"]
   
