@@ -21,6 +21,7 @@ deploy:
   - provider: script
     script: 
       - gcloud auth activate-service-account --key-file ${HOME}/whist-game-production-c2e47c08e54c.json
+      - gcloud container clusters get-credentials whist-game-cluster-production
       - kubectl create deployment docker-maven-test-deployment --image=hub.docker.com/r/whistteam/docker-maven-test
     
       skip_cleanup: true
