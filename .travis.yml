@@ -1,5 +1,6 @@
 language: java
 
+
 install: ./mvnw install 
 
 services:
@@ -20,7 +21,7 @@ deploy:
   - provider: script
     script: 
       - gcloud auth activate-service-account --key-file ${HOME}/whist-game-production-c2e47c08e54c.json
-      - kubectl create deployment docker-maven-test-deployment --image=gcr.io/${whist-game-production}/docker-maven-test-deployment:v1
+      - kubectl create deployment docker-maven-test-deployment --image=hub.docker.com/r/whistteam/docker-maven-test
     
       skip_cleanup: true
     on:
