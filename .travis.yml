@@ -1,5 +1,13 @@
 language: java
 
+# setting environment variables
+env:
+  global:
+    - PROJECT_NAME_PRD = whist-game-production
+    - DOCKER_IMAGE_NAME = docker-maven-test
+    - KUBE_DEPLOYMENT_NAME = whist-game-cluster-production	
+    - KUBE_DEPLOYMENT_CONTAINER_NAME = docker-maven-test
+
 install: ./mvnw install 
 
 services:
@@ -16,7 +24,13 @@ jobs:
 
 script: "echo 'Building Docker image with tags'"
 
-
 deploy: 
-  
+  - provider: script
+    script: 
+      - gcloud auth activate-service-account --key-file ${HOME}/whist-game-production-c2e47c08e54c.json
+      - kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=gcr.io/${PROJECT_NAME_PRD}/${DOCKER_IMAGE_NAME}:$TRAVIS_COMMIT
+    
+      skip_cleanup: true
+    on:
+      branch: master
   
