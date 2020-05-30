@@ -1,5 +1,6 @@
 language: java
 
+before install: openssl aes-256-cbc -K $encrypted_8bbfaf2ee9e4_key -iv $encrypted_8bbfaf2ee9e4_iv -in whist-game-production-c2e47c08e54c.json.enc -out whist-game-production-c2e47c08e54c.json -d
 
 install: ./mvnw install 
 
