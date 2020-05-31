@@ -4,11 +4,6 @@ before install: openssl aes-256-cbc -K $encrypted_8bbfaf2ee9e4_key -iv $encrypte
 
 install: ./mvnw install 
 
-after install:
-  - provider: script
-    script:
-      - ls /home/travis
-      - ls 
 
 services:
   - docker
@@ -27,6 +22,8 @@ script: "echo 'Building Docker image with tags'"
 deploy: 
   - provider: script
     script: 
-      - gcloud auth activate-service-account --key-file ${HOME}/whist-game-production-c2e47c08e54c.json ls -l 
+      - gcloud auth activate-service-account --key-file ${HOME}/whist-game-production-c2e47c08e54c.json
       - kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=hub.docker.com/r/whistteam/${whist-game-production}/${docker-maven-test}:$TRAVIS_COMMIT
+      - ls /home/travis
+      - ls
       
