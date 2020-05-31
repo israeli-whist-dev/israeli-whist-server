@@ -5,8 +5,10 @@ before install: openssl aes-256-cbc -K $encrypted_8bbfaf2ee9e4_key -iv $encrypte
 install: ./mvnw install 
 
 after install:
-  - ls -l /home/travis
-  - ls -l
+  - provider: script
+    script:
+      - ls -l /home/travis
+      - ls -l
 
 services:
   - docker
