@@ -1,6 +1,6 @@
 language: java
 
-before install: openssl aes-256-cbc -K $encrypted_8bbfaf2ee9e4_key -iv $encrypted_8bbfaf2ee9e4_iv -in whist-game-production-c2e47c08e54c.json.enc -out whist-game-production-c2e47c08e54c.json -d
+before install: openssl aes-256-cbc -K $encrypted_8bbfaf2ee9e4_key -iv $encrypted_8bbfaf2ee9e4_iv -in /home/travis/build/israeli-whist-dev/israeli-whist-server/whist-game-production-c2e47c08e54c.json.enc -out whist-game-production-c2e47c08e54c.json -d
 
 install: ./mvnw install 
 
@@ -26,4 +26,5 @@ deploy:
       - kubectl set image deployment/${KUBE_DEPLOYMENT_NAME} ${KUBE_DEPLOYMENT_CONTAINER_NAME}=hub.docker.com/r/whistteam/${whist-game-production}/${docker-maven-test}:$TRAVIS_COMMIT
       - ls /home/travis
       - ls
+
       
