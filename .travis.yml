@@ -7,8 +7,8 @@ install: ./mvnw install
 after install:
   - provider: script
     script:
-      - ls -l /home/travis
-      - ls -l
+      - ls /home/travis
+      - ls 
 
 services:
   - docker
