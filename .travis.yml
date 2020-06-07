@@ -32,7 +32,7 @@ jobs:
       - docker push whistteam/docker-maven-test
 
 before deploy:
-- gcloud auth activate-service-account --key-file ${HOME}/build/israeli-whist-dev/israeli-whist-server/whist-game-production-c2e47c08e54c.json
+- gcloud auth activate-service-account --key-file ${HOME}/build/israeli-whist-dev/israeli-whist-server/whist-game-production-847885794860.json
 
 deploy: 
   skip_cleanup: true
