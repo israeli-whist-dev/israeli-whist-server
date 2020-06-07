@@ -40,5 +40,5 @@ deploy:
   provider: script
   script:
   - gcloud container clusters get-credentials whist-game-cluster-production --zone us-central1-c 
-  - kubectl set image deployment/whist-backend whist-backend=hub.docker.com/r/whistteam/whist-game-production/docker-maven-test:$TRAVIS_COMMIT
+  - kubectl set image deployment/whist-backend whist-backend=https://index.docker.io/v1/whistteam/whist-game-production/docker-maven-test:$TRAVIS_COMMIT
     
