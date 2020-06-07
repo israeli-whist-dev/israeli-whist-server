@@ -1,6 +1,6 @@
 language: java
 
-before install: openssl aes-256-cbc -K $encrypted_ec63a96903b3_key -iv $encrypted_ec63a96903b3_iv -in /home/travis/build/israeli-whist-dev/israeli-whist-server/whist-game-production-c2e47c08e54c.json.enc -out /home/travis/build/israeli-whist-dev/israeli-whist-server/whist-game-production-c2e47c08e54c.json -d
+before install: openssl aes-256-cbc -K $encrypted_ec63a96903b3_key -iv $encrypted_ec63a96903b3_iv -in /home/travis/build/israeli-whist-dev/israeli-whist-server/whist-game-production-847885794860.json.enc -out /home/travis/build/israeli-whist-dev/israeli-whist-server/whist-game-production-847885794860.json -d
 
 install: 
   - ./mvnw install
