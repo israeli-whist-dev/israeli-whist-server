@@ -38,6 +38,6 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
-  - gcloud components update kubectl
+  - gcloud update kubectl
   - kubectl set image deployment/whist-backend whist-backend=hub.docker.com/r/whistteam/whist-game-production/docker-maven-test:$TRAVIS_COMMIT
     
