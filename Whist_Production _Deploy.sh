@@ -9,6 +9,8 @@ fi
 # Promote gcloud to PATH top priority
 source $HOME/google-cloud-sdk/path.bash.in
 
-gcloud components update kubectl
+gcloud auth activate-service-account --key-file ${HOME}/build/israeli-whist-dev/israeli-whist-server/whist-game-production-c2e47c08e54c.json
+gcloud container clusters get-credentials whist-game-cluster-production --zone us-central1-c 
 
+gcloud components update kubectl
 kubectl set image deployment/whist-backend whist-backend=hub.docker.com/r/whistteam/whist-game-production/docker-maven-test:$TRAVIS_COMMIT
