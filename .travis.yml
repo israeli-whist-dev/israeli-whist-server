@@ -38,7 +38,7 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
-  - gcloud container clusters get-credentials whist-game-cluster-production --zone us-central1-c 
+  - gcloud container clusters get-credentials whist-game-cluster-production 
   - gcloud components update kubectl
   - kubectl set image deployment/whist-backend whist-backend=hub.docker.com/r/whistteam/whist-game-production/docker-maven-test:$TRAVIS_COMMIT
     
