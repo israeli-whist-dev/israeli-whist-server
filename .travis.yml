@@ -28,8 +28,8 @@ jobs:
   include:
     - stage: build docker image
       script:
-      - docker login -u whistteam -p MayTheForceBeWithYou1! gcr.io
-      - docker push gcr.io/whist-game-production/docker-maven-test
+      - docker login -u whistteam -p MayTheForceBeWithYou1!
+      - docker push gcr.io/whist-game-production/docker-maven-test:v2
 
 before deploy:
 - gcloud config set project whist-game-production
