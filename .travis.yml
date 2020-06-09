@@ -28,7 +28,7 @@ dist: trusty
 before deploy:
 - gcloud config set project whist-game-production
 - gcloud auth activate-service-account --key-file ${HOME}/build/israeli-whist-dev/israeli-whist-server/whist-game-production-847885794860.json
-- gcloud docker -- push gcr.io/whist-game-production/docker-maven-test:$TRAVIS_COMMIT
+- gcloud docker -- push gcr.io/whist-game-production/docker-maven-test:0.0.1-SNAPSHOT:$TRAVIS_COMMIT
 
 deploy: 
   skip_cleanup: true
