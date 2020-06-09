@@ -29,8 +29,7 @@ jobs:
     - stage: build docker image
       script:
       - docker login -u whistteam -p MayTheForceBeWithYou1!
-      - docker tag docker-maven-test gcr.io/whist-game-production/docker-maven-test
-      - docker push gcr.io/whist-game-production/docker-maven-test
+      - docker push gcr.io/whist-game-production/docker-maven-test:$TRAVIS_COMMIT
 
 before deploy:
 - gcloud config set project whist-game-production
