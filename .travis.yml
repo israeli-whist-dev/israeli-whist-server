@@ -3,7 +3,7 @@ language: java
 before install: openssl aes-256-cbc -K $encrypted_ec63a96903b3_key -iv $encrypted_ec63a96903b3_iv -in /home/travis/build/israeli-whist-dev/israeli-whist-server/whist-game-production-847885794860.json.enc -out /home/travis/build/israeli-whist-dev/israeli-whist-server/whist-game-production-847885794860.json -d
 
 install: 
-  - ./mvnw install -Dgit-revision=$TRAVIS_COMMIT
+  - ./mvnw install dockerfile:build -Dgit-revision=$TRAVIS_COMMIT
   - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
   - chmod +x ./kubectl
   - sudo mv ./kubectl /usr/local/bin/kubectl 
