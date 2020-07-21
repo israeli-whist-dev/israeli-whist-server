@@ -14,7 +14,7 @@ steps:
       args: ['install']
         
     - name: "gcr.io/cloud-builders/docker"
-      args: ["push", "gcr.io/whist-game-production/whist-server:$REVISION_ID"]
+      args: ["push", "gcr.io/whist-game-production/docker-maven-test:$REVISION_ID"]
 
     - name: "gcr.io/cloud-builders/kubectl"
       args:
