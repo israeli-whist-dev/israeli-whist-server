@@ -3,7 +3,7 @@ steps:
       args:
         - kms
         - decrypt
-        - --ciphertext-file=.env-dev.enc
+        - --ciphertext-file=.env.enc
         - --plaintext-file=.env
         - --location=global
         - --keyring=whist-keyring
@@ -15,7 +15,7 @@ steps:
         
     - name: "gcr.io/cloud-builders/docker"
       args: ["push", "gcr.io/whist-game-production/whist-server:$REVISION_ID"]
-      
+
     - name: "gcr.io/cloud-builders/kubectl"
       args:
         - "set"
