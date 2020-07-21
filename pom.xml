@@ -66,8 +66,8 @@
 		                 </execution>
 		             </executions>
 		             <configuration>
-		             <repository>docker.io/whistteam/docker-maven-test</repository>
-		                 <tag>${project.version}</tag>
+		             <repository>gcr.io/whist-game-production/docker-maven-test</repository>
+		             <tag>${git-revision}</tag>
 		             </configuration>
 			</plugin>
 		</plugins>
