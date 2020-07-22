@@ -11,7 +11,7 @@ steps:
     
     - name: maven
       entrypoint: mvn
-      args: ['install']
+      args: ['-Dgit-revision=$REVISION_ID', 'install']
         
     - name: "gcr.io/cloud-builders/docker"
       args: ["push", "gcr.io/whist-game-production/docker-maven-test:$REVISION_ID"]
