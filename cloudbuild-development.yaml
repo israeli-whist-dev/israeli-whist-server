@@ -20,8 +20,8 @@ steps:
       args:
         - "set"
         - "image"
-        - "deployment/whist-server"
-        - "docker-maven-test-sha256-1=gcr.io/whist-game-production/docker-maven-test:$REVISION_ID"
+        - "deployment/whist-server-dev"
+        - "docker-maven-test-sha256-1=gcr.io/whist-game-development/docker-maven-test:$REVISION_ID"
       env:
         - "CLOUDSDK_COMPUTE_ZONE=us-central1-c"
         - "CLOUDSDK_CONTAINER_CLUSTER=whist-game-cluster-development"
