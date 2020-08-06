@@ -26,4 +26,3 @@ steps:
         - "CLOUDSDK_COMPUTE_ZONE=us-central1-c"
         - "CLOUDSDK_CONTAINER_CLUSTER=whist-game-cluster-development"
 
-asas
